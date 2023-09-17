@@ -8,12 +8,12 @@
 
 int main()
 {
-    pid_t child_pid; // Declare child_pid here at the beginning of the block
+    pid_t child_pid; /* Declare child_pid here at the beginning of the block */
     char input[MAX_INPUT_SIZE];
     int interactive = 1;
 
-    /*
-     * Assume interactive mode by default
+    /* 
+     * Assume interactive mode by default 
      */
 
     while (1)
@@ -63,13 +63,28 @@ int main()
 
         if (child_pid == 0)
         {
-            /*
+ 	     /*
              * Child process
              * Execute the command entered by the user
              */
-            char *args_copy[] = {"/bin/sh", "-c", input, NULL};
+
+          
+            char **args_copy = malloc(4 * sizeof(char *));
+            if (args_copy == NULL)
+            {
+                perror("malloc");
+                exit(EXIT_FAILURE);
+            }
+
+            args_copy[0] = "/bin/sh";
+            args_copy[1] = "-c";
+            args_copy[2] = input;
+            args_copy[3] = NULL;
+
             execvp("/bin/sh", args_copy);
             perror("execvp");
+
+            free(args_copy);
 
             /*
              * This line is reached if execvp fails
@@ -95,4 +110,3 @@ int main()
 
     return 0;
 }
-
