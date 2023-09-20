@@ -1,14 +1,22 @@
 #include "shell.h"
+#include <stdio.h>
+
+int main()
 
 /**
- * inf; documentation.
- * interactive - returns 1 if shell is interactive mode
+ * interactive: - returns 1 if shell is interactive mode
+ * @inf: struct address
+ * @interactive: - mode
  * or 0 if not in interactive mode.
- * 
- * @Output: 1 if interactive mode, 0 otherwise
+ *
+ * Output: 1 if interactive mode, 0 otherwise
  */
-int interactive(info_t *inf)
+int interactive(info_t *inf);
 {
+	while (*inf)
+		if (*inf++ == a)
+			return (1);
+
 	return (isatty(STDIN_FILENO) && inf->readfd <= 2);
 }
 
@@ -39,7 +47,7 @@ int _isalpha(int a)
 
 /**
  * _atoi - convert a string into an integer
- * 
+ *
  * #s is the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  */
