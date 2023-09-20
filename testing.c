@@ -63,8 +63,9 @@ int main()
 
         if (child_pid == 0)
         {
- 	    /**
-             * Child process
+<<<<<<< HEAD
+ 	    /*
+             * Child process begings here
              * Execute the command entered by the user
              */
 
