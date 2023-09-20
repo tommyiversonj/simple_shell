@@ -12,8 +12,8 @@ int main()
     char input[MAX_INPUT_SIZE];
     int interactive = 1;
 
-    /* 
-     * Assume interactive mode by default 
+    /*
+     * Assume interactive mode by default
      */
 
     while (1)
@@ -63,7 +63,6 @@ int main()
 
         if (child_pid == 0)
         {
-<<<<<<< HEAD
  	    /*
              * Child process begings here
              * Execute the command entered by the user
